@@ -10,6 +10,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RecyclerViewUse">
         <activity
+            android:name=".staggeredGrid.StaggeredGridActivity"
+            android:exported="false" />
+        <activity
+            android:name=".gridLayout.GridActivity"
+            android:exported="false" />
+        <activity
+            android:name=".linearHorizontal.LinearHorizontalActivity"
+            android:exported="false" />
+        <activity
+            android:name=".linearVertical.LinearVerticalActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

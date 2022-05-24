@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">RecyclerViewUse</string>
+    <string name="button_linear_vertical">Linear Vertical</string>
+    <string name="button_linear_horizontal">Linear Horizontal</string>
+    <string name="button_gridLayout">GridLayout</string>
+    <string name="button_staggeredLayout">Staggered Layout</string>
 </resources>
