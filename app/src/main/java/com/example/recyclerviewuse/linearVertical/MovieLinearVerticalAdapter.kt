@@ -7,7 +7,8 @@ import com.example.recyclerviewuse.R
 import com.example.recyclerviewuse.commons.Movie
 
 class MovieLinearVerticalAdapter(
-    val data: List<Movie>
+    val data: List<Movie>,
+    val onClickListener: MovieOnClickListener
 ) : RecyclerView.Adapter<MovieLinearVerticalViewHolder>() {
 
     override fun onCreateViewHolder(
@@ -26,9 +27,13 @@ class MovieLinearVerticalAdapter(
 
     override fun onBindViewHolder(holder: MovieLinearVerticalViewHolder, position: Int) {
         val item = data[position]
-        holder.bind(item)
+        holder.bind(item, onClickListener)
     }
 
     override fun getItemCount(): Int = data.size
 
+}
+
+interface MovieOnClickListener {
+    fun onClick(movie: Movie)
 }

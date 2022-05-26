@@ -2,11 +2,12 @@ package com.example.recyclerviewuse.linearVertical
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.recyclerviewuse.commons.Movie
 import com.example.recyclerviewuse.databinding.ActivityLinearVerticalBinding
 
-class LinearVerticalActivity : AppCompatActivity() {
+class LinearVerticalActivity : AppCompatActivity(), MovieOnClickListener {
 
     private lateinit var binding: ActivityLinearVerticalBinding
 
@@ -27,7 +28,7 @@ class LinearVerticalActivity : AppCompatActivity() {
     }
 
     private fun initRecyclerView() {
-        adapterMovies = MovieLinearVerticalAdapter(data)
+        adapterMovies = MovieLinearVerticalAdapter(data, this)
         with(binding.recyclerView) {
             layoutManager = LinearLayoutManager(this@LinearVerticalActivity)
             adapter = adapterMovies
@@ -40,6 +41,10 @@ class LinearVerticalActivity : AppCompatActivity() {
         data.clear()
         data.addAll(newData)
         adapterMovies.notifyDataSetChanged()
+    }
+
+    override fun onClick(movie: Movie) {
+        Toast.makeText(this, movie.toString(), Toast.LENGTH_LONG).show()
     }
 
     private fun getData(): List<Movie> {

@@ -13,13 +13,16 @@ class MovieLinearVerticalViewHolder(
 
     private val binding = ItemViewHolderMovieLinearVerticalBinding.bind(view)
 
-    fun bind(model: Movie) {
+    fun bind(model: Movie, onClickListener: MovieOnClickListener) {
         with(binding) {
             Glide.with(itemView).load(model.url).into(imageViewLinearVerticalPrincipal)
             textViewLinearVerticalTitle.text = model.title
             textViewLinearVerticalYear.text = model.year.toString()
             textViewLinearVerticalType.text = model.type
             ratingBarLinearVerticalRating.numStars = model.rating.roundToInt()
+            root.setOnClickListener {
+                onClickListener.onClick(model)
+            }
         }
     }
 }
